@@ -8,6 +8,9 @@ import Cadastro from './pages/Cadastro';
 import Servicos from './pages/Servicos';
 import Agendamentos from './pages/Agendamentos';
 import AgendamentoForm from './pages/AgendamentoForm';
+import PainelAdmin from './pages/PainelAdmin';
+import GerenciarServicos from './pages/GerenciarServicos';
+import ServicoForm from './pages/ServicoForm';
 import NaoEncontrada from './pages/NaoEncontrada';
 import './App.css';
 
@@ -29,6 +32,13 @@ export default function App() {
               <Route path="/agendamentos" element={<Agendamentos />} />
               <Route path="/agendamentos/novo" element={<AgendamentoForm />} />
               <Route path="/agendamentos/:id/editar" element={<AgendamentoForm />} />
+            </Route>
+            {/* Rotas só para admin */}
+            <Route element={<RotaPrivada perfil="admin" />}>
+              <Route path="/admin/painel" element={<PainelAdmin />} />
+              <Route path="/admin/servicos" element={<GerenciarServicos />} />
+              <Route path="/admin/servicos/novo" element={<ServicoForm />} />
+              <Route path="/admin/servicos/:id/editar" element={<ServicoForm />} />
             </Route>
             <Route path="*" element={<NaoEncontrada />} />
           </Route>
