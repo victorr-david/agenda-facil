@@ -1,12 +1,22 @@
-import Logo from './components/Logo';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import NaoEncontrada from './pages/NaoEncontrada';
 import './App.css';
 
-// Tela provisória para testar a identidade visual (logo, cores e fonte)
 export default function App() {
   return (
-    <main className="page">
-      <Logo />
-      <p className="sub">Em construção.</p>
-    </main>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            {/* Rotas públicas */}
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NaoEncontrada />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
