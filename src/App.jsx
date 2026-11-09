@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Cadastro from './pages/Cadastro';
 import NaoEncontrada from './pages/NaoEncontrada';
 import './App.css';
 
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           {/* Telas de autenticação (layout próprio, sem navbar) */}
           <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<Cadastro />} />
 
           <Route element={<Layout />}>
             {/* Rotas públicas */}
